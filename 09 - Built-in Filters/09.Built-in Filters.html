@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Built-in Filters</title>
+    <link rel="stylesheet" href="../libs/foundation.min.css"/>
+</head>
+<body ng-app="myApp"> 
+    <div ng-controller="AvengersCtrl">
+        <input type="text" ng-model="search.$" /><br />
+        <input type="text" ng-model="search.name" /><br />
+        <input type="text" ng-model="search.character" /><br />
+        <table>
+            <tr ng-repeat="actor in avengers.cast | filter:search | orderBy:'name' | limitTo:5 ">
+                <td>{{actor.name | lowercase}}</td>
+                <td>{{actor.character | uppercase}}</td>
+            </tr>
+            <tr>{{126.121 | number:2}}</tr>
+        </table>
+    </div>
+       
+    <!--orderBy:'name' 按name排序-->
+    <!--orderBy:'-name' 按name反向排序-->
+    <!--limitTo:5 显示前面的5个元素(使用前提：avenger.cast为一个数组)-->
+    <!--limitTo:-5 显示后面的5个元素-->
+    <!-- number:2 保留两位小数(四舍五入) -->
+    <!-- currency -->
+    <!-- date -->
+    <!-- json : 将对象转换为json -->
+    <script src="../libs/angular.js"></script>
+    <script src="AvengersCtrl.js"></script>
+</body>
+</html>
+

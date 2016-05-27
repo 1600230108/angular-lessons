@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>43 - $index, $event, $log</title>
+    <link rel="stylesheet" href="../libs/foundation.min.css">
+</head>
+<body>
+<div ng-app="app">
+
+    <div ng-app="app">
+        <div ng-controller="FooCtrl">
+            <div 
+                class="button"
+                ng-repeat="item in 'somewords'.split('')"
+                ng-click="myFunc($event)"
+            >
+                <!-- ng-click="$log.warn($event)" -->
+                <!-- ng-click="$log.info($event)" -->
+                <!-- ng-click="$log.debug($event)" -->
+                {{ $index + 1 }}. {{ item }} {{ ev.pageX }}
+            </div>
+        </div>
+    </div>
+    
+    <!-- debug [di:'b^g] v.调试 -->
+    <script src="../libs/angular.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="../libs/foundation.min.css"/>
+</head>
+<body>
+    <div ng-app="app">
+        <input type="text" ng-model="model.title"><br />
+        <input type="text" ng-model="model.content"><br />
+        <zippy title="{{model.title}}">
+            The content is: {{model.content}}
+        </zippy>
+    </div>
+    <script src="../libs/angular.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

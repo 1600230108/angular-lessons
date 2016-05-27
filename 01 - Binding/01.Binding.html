@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>binding</title>
+    <link rel="stylesheet" href="../libs/foundation.min.css"/>
+</head>
+<body>
+
+<div ng-app="">
+    <input type="text" ng-model="data.message"/>
+
+    <h2>{{data.message}}</h2>
+    <hr/>
+    <input type="text" ng-model="className"/>
+
+    <div class="{{className}}">
+        Wrap me with a foundation component!
+    </div>
+</div>
+
+
+<script src="../libs/angular.js"></script>
+</body>
+</html>
+

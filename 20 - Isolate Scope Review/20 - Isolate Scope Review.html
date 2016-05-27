@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../libs/angular.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="../libs/foundation.min.css"/>
+</head>
+<body>
+    <div ng-app="phoneApp">
+        <div ng-controller="AppCtrl">
+            <phone number="555-1234" network="network" make-call="leaveVoicemail(number, message)"></phone><br />
+            <phone number="867-5309" network="network" make-call="leaveVoicemail(number, message)"></phone><br />
+            <phone number="911-1324" network="network" make-call="leaveVoicemailHome(number, message)"></phone>
+        </div>
+    </div>
+</body>
+</html>

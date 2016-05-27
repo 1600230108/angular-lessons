@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Basic Behaviors</title>
+    <link rel="stylesheet" href="../libs/foundation.min.css">
+</head>
+<body>
+    <div ng-app="behaviorApp">
+        <!-- <div enter leave>I'm content1!</div><br /><br /> -->
+        <div enter="panel" leave>I'm content2!</div>
+    </div>
+
+    <script src="../libs/angular.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    var app = angular.module("behaviorApp", []);
+    app.directive('enter', function() {
+        return function(scope, element, attrs) { 
+            console.log(attrs);
+            element.bind('mouseenter', function() {
+                element.addClass(attrs.enter);  //attr.enter表示enter的属性值
+            })
+        }
+    })
+    
+    app.directive('leave', function() {
+        return function(scope, element, attrs) {
+            element.bind('mouseleave', function() {
+                element.removeClass(attrs.enter);
+            })
+        }
+    })
+    /*以下的效果与上面的相同*/
+    /*
+    app.directive('enter', function() {
+        return function(scope, element) {  // restrict: "A",默认情况下为A，这里可以省去不写
+            element.bind('mouseenter', function() {
+                element.addClass('pannel');
+            })
+        }
+    })
+    
+    app.directive('leave', function() {
+        return function(scope, element) {
+            element.bind('mouseleave', function() {
+                element.removeClass('pannel');
+            })
+        }
+    })
+    */
+</script>
+</body>
+</html>

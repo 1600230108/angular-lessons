@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Filter</title>
+    <script src="../libs/angular.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    var myApp = angular.module('myApp', []);
+    myApp.factory('Data', function(){
+        return {message:"I'm data from a service"}
+    });
+
+    myApp.filter('reverse', function(Data){
+        return function(text){
+            console.log(text);
+            return text.split("").reverse().join("") + Data.message;
+        }
+    });
+    /*
+    reverse = function(text){
+        return text.split("").reverse().join("");
+    }
+    */
+
+    function firstCtrl($scope, Data){
+        $scope.data = Data;
+    }
+    </script>
+</head>
+<body>
+<div ng-app="myApp">
+    <div ng-controller="firstCtrl">
+        <input type="text" ng-model="data.message" />
+        <h1>{{data.message | reverse}}</h1>
+    </div>
+</div>
+
+       
+</body>
+</html>
+

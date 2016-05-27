@@ -1,0 +1,20 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <meta charset="utf-8" />
+    <title>Built-in Filters</title>
+</head>
+<body>
+    <span ng-non-bindable>{{1288323623006 | date:'medium'}}</span>
+    : {{1288323623006 | date:'medium'}}
+    <br>
+    <span ng-non-bindable>{{1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'}}</span>
+    : {{1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'}}
+    <br>
+    <span ng-non-bindable>{{1288323623006 | date:'MM/dd/yyyy @ h:mma'}}</span>
+    : {{'1288323623006' | date:'MM/dd/yyyy @ h:mma'}}
+    <br>
+    <script src="../libs/angular.js"></script>
+</body>
+</html>
+

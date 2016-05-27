@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Basic Behaviors</title>
+</head>
+<body>
+<div ng-app="behaviorApp">
+    <div enter leave>I'm content!</div>
+
+    <script src="../libs/angular.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    var app = angular.module("behaviorApp", []);
+    app.directive('enter', function() {
+        return function(scope, element) {  // restrict: "A",默认情况下为A，这里可以省去不写
+            element.bind('mouseenter', function() {
+                console.log("I'm inside of you!");
+            })
+        }
+    })
+    
+    app.directive('leave', function() {
+        return function(scope, element) {
+            element.bind('mouseleave', function() {
+                console.log("I'm leaving on a jet plane!");
+            })
+        }
+    })
+    </script>
+</div>
+</body>
+</html>

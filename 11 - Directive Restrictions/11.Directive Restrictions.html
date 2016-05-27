@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Directive Restrictions</title>
+</head>
+<body>
+    <div ng-app="MyApp">
+        <!-- A: <div superman></div>   -->
+        <!--C: <div class="superman"></div> -->
+        M: <!-- directive:superman -->
+
+
+        <!-- flash1在前，先执行，后执行flash2 -->
+        <div flash1 flash2></div>
+    </div>
+
+
+    <script src="../libs/angular.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    /*
+        1.restrict
+        2.scope
+        3.controller
+        4.template
+        5.link
+    */
+        var app = angular.module("MyApp", []);
+        app.directive("superman", function(){
+            return {
+                restrict: "A", //A: attribute; C: class; M: comment; E: element
+                link: function() {
+                    alert('I am working!');
+                }
+            }
+        })
+
+
+        app.directive("flash1", function(){
+            return {
+                // restrict: "A", //默认情况下为A，可以省去不写
+                link: function() {
+                    alert('I am stronger!');
+                }
+            }
+        })
+        app.directive("flash2", function(){
+            return {
+                // restrict: "A",
+                link: function() {
+                    alert('I am working faster!');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

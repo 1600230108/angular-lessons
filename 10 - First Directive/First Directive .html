@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>First Directive </title>
+    <link rel="stylesheet" href="../libs/foundation.min.css"/>
+</head>
+<body>
+    <div ng-app="myApp">
+        <superhero></superhero>
+    </div>
+    <!-- <superhero><div>Here I'm to save the day!</div></superhero> -->
+
+    <script src="../libs/angular.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        //directive [d3'rektiv] n.指令
+        //restrict  [ri'strikt] v.限制；约束
+        //template  ['templeit] n.模板
+        var app = angular.module("myApp", []);
+        app.directive("superhero", function(){
+            return {
+                restrict : "E", //E : element
+                replace: true, //默认为false
+                template : "<div>Here I'm to save the day!</div>"
+            }
+        });
+    </script>
+</body>
+</html>

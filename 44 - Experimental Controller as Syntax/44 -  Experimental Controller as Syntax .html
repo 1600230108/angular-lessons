@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="../libs/foundation.min.css">
+</head>
+<body>
+    <div ng-app="app" ng-controller="RoomCtrl as room">
+        <div class="button" ng-click="room.openDoor()">{{room.buttonTitle}}</div>
+        <div ng-controller="OtherCtrl as other">
+            {{room.foo}}
+            {{other.foo}}
+        </div>
+    </div>
+    
+    <!-- <script src="../angular.js"></script> 旧版本的angular不行--> 
+    <script src="../angular.min.1.1.5.js" type="text/javascript"></script>
+    <script src="main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Directives Talking to Controllers</title>
+</head>
+<body>
+    <div ng-app="twitterApp">
+        <div ng-controller="AppCtrl">
+            <div enter="loadMoreTweets()" class="panel"> Roll over to load more tweets</div><br />
+            <div enter="deleteTweets()" class="panel"> delete tweets ! </div><br />
+        </div>
+    </div>
+    <script src="../libs/angular.js"></script>
+    <script type="text/javascript">
+        var app = angular.module('twitterApp', []);
+        app.controller('AppCtrl', function($scope) {
+            $scope.loadMoreTweets = function() {
+                alert('Loading tweets!');
+            }
+
+            $scope.deleteTweets = function() {
+                alert('Delete tweets');
+            }
+        });
+
+        app.directive('enter', function() {
+            return function(scope, element, attrs) {
+                element.bind('mouseenter', function() {
+                    scope.$apply(attrs.enter);
+                    // scope.$apply('loadMoreTweets()');
+                });
+            }
+        });
+
+    </script>
+</body>
+</html>

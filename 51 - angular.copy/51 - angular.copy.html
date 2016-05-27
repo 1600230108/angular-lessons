@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Controllers</title>
+    <link rel="stylesheet" href="../libs/bootstrap.css">
+</head>
+<body ng-app="MyApp" ng-controller="AppCtrl as app">
+<br /><br />
+<form>
+    <input type="text" ng-model="app.contactCopy.name" />
+    <!-- <input type="text" ng-model="app.contactCopy.character" /> -->
+    <button class="btn btn-primary" type="button" ng-click="app.saveContact()">Save</button>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>character</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="contact in app.contacts" ng-click="app.selectContact(contact)">
+            <td>{{contact.name}}</td>
+            <td>{{contact.character}}</td>
+        </tr>
+    </tbody>
+</table>
+
+       
+<script src="../libs/angular.min.1.2.0.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
+
